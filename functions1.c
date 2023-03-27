@@ -12,7 +12,7 @@
  * Return: Number of chars printed
  */
 int print_unsigned(va_list types, char buffer[], int flags,
-	       	int width, int precision, int size)
+		int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
@@ -33,7 +33,7 @@ int print_unsigned(va_list types, char buffer[], int flags,
 	i++;
 
 	return (write_unsgnd(0, i, buffer, flags,
-			       	width, precision, size));
+				width, precision, size));
 }
 
 /**********PRINT UNSIGNED NUMBER IN OCTAL******/
@@ -48,7 +48,7 @@ int print_unsigned(va_list types, char buffer[], int flags,
  * Return: Number of chars printed
  */
 int print_octal(va_list types, char buffer[],
-	       	int flags, int width, int precision, int size)
+		int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
@@ -70,12 +70,12 @@ int print_octal(va_list types, char buffer[],
 	}
 
 	if (flags & F_HASH && init_num != 0)
-		buffer [i--] = '0';
+		buffer[i--] = '0';
 
 	i++;
 
 	return (write_unsgnd(0, i, buffer, flags,
-			       	width, precision, size));
+				width, precision, size));
 
 }
 /*********PRINT UNSIGNED NUMBER IN HEXADECIMAL********/
@@ -84,7 +84,7 @@ int print_octal(va_list types, char buffer[],
  * @types: list of arguments
  * @buffer: buffer array to handle print
  * @flags: calculates active flags
- * width: get width
+ * @width: get width
  * @precision: precision specification
  * @size: size specifier
  * Return: Number of chars printed
@@ -133,7 +133,8 @@ int print_hexa(va_list types, char map_to[], char buffer[], int flags,
 		char flag_ch, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
-	insigned long int num = va_arg(types, unsigned long int);
+
+	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
 
 	UNUSED(width);
@@ -159,5 +160,5 @@ int print_hexa(va_list types, char map_to[], char buffer[], int flags,
 	i++;
 
 	return (write_usgnd(0, i, buffer, flags, width,
-			       	precision, size));
+				precision, size));
 }
