@@ -26,7 +26,7 @@ int width, int precision, int size)
 	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
-	buffer[BUFFER_SIZE - 1] = '\0';
+	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
 	num_addrs = (unsigned long)addrs;
@@ -37,7 +37,7 @@ int width, int precision, int size)
 		length++;
 	}
 
-	if ((flags & F_ZERO) !(flags & F_MINUS))
+	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
 		extra_c = '+', length++;
@@ -119,7 +119,7 @@ int width, int precision, int size)
 	{
 		UNUSED(precision);
 
-		str = ")Null ("
+		str = ")Null(";
 	}
 	for (i = 0; str[i]; i++)
 		;
